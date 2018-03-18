@@ -1,7 +1,6 @@
 .catalog:
   name: Gitlab Community Server
-  version: latest
-  minimum_rancher_version: v0.56.0
+  version: v10.5.4-ce.0
   uuid: gitlab-ce-server-0
   questions:
     - variable: "gitlab_hostname"
