@@ -1,0 +1,19 @@
+version: '2'
+volumes:
+  teamspeak3-server-data:
+    driver: local
+
+services:
+  teamspeak3-server:
+    ports:
+      - 9987/udp
+      - 30033/tcp
+      - 10011/tcp
+    labels:
+      io.rancher.container.hostname_override: container_name
+    image: aheil/teamspeak3-server:latest
+    volumes:
+      - teamspeak3-server-data:/data
+    environment:
+      TS3SERVER_LICENSE: accept
+    restart: unless-stopped

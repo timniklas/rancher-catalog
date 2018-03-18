@@ -1,0 +1,9 @@
+.catalog:
+  name: Teamspeak3 Server
+  version: latest
+  minimum_rancher_version: v0.56.0
+  uuid: teamspeak3-server-0
+
+teamspeak3-server:
+  scale: 1
+  retain_ip: true
