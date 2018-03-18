@@ -1,0 +1,4 @@
+name: GitLab Community Server
+description: GitLab ist eine Webanwendung zur Versionsverwaltung für Softwareprojekte auf Basis von git.
+version: v1.0.0
+category: git

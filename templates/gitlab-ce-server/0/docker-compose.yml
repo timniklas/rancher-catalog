@@ -1,0 +1,26 @@
+version: '2'
+volumes:
+  gitlab-ce-server-app:
+    driver: local
+  gitlab-ce-server-log:
+    driver: local
+  gitlab-ce-server-conf:
+    driver: local
+
+services:
+  gitlab-ce-server:
+    ports:
+      - ${ssh_port}:22/tcp
+    labels:
+      io.rancher.container.hostname_override: container_name
+    image: gitlab/gitlab-ce:latest
+    volumes:
+      - gitlab-ce-server-app:/etc/gitlab
+      - gitlab-ce-server-log:/var/log/gitlab
+      - gitlab-ce-server-conf:/var/opt/gitlab
+    restart: unless-stopped
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://${gitlab_hostname}'
+        registry_external_url 'http://${registry_gitlab_hostname}'
+        gitlab_rails['gitlab_shell_ssh_port'] = ${ssh_port}
