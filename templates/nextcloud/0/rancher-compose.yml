@@ -8,17 +8,17 @@
       label: "Hostname:"
       required: true
       type: "string"
-    - variable: "mysql_hostname"
-      description: "MySQL hostname"
+    - variable: "mysql_username"
+      description: "MySQL username"
       label: "Username:"
       required: true
       type: "string"
-    - variable: "mysql_hostname"
+    - variable: "mysql_password"
       description: "MySQL password"
       label: "Password:"
       required: true
       type: "string"
-    - variable: "mysql_hostname"
+    - variable: "mysql_database"
       description: "MySQL database"
       label: "Database:"
       required: true
