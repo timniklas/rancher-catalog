@@ -1,0 +1,17 @@
+version: '2'
+volumes:
+  mssql-server-data:
+    driver: local
+
+services:
+  mssql-server:
+    image: mssql-server:2017-CU5
+    ports:
+      - 1433/tcp
+    volumes:
+      - mssql-server-data:/var/opt/mssql/data
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${SA_PASSWORD}
+      - MSSQL_PID=${MSSQL_PID}

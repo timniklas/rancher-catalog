@@ -1,0 +1,19 @@
+.catalog:
+  name: Microsoft SQL Server
+  version: 2017-CU5
+  uuid: mssql-server-0
+  questions:
+    - variable: "SA_PASSWORD"
+      description: "Minimum 8 characters, upper, lower, number"
+      label: "SuperAdmin Password:"
+      required: true
+      type: "string"
+    - variable: "MSSQL_PID"
+      description: "Developer, Express, Standard, Enterprise, EnterpriseCore, <valid product id>"
+      label: "Edition or ProductID:"
+      required: true
+      type: "string"
+
+mssql-server:
+  scale: 1
+  retain_ip: true

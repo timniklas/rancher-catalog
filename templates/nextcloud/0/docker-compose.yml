@@ -8,8 +8,6 @@ volumes:
 services:
   nextcloud:
     image: nextcloud:13.0.1
-    ports:
-      - 80/tcp
     volumes:
       - nextcloud-web:/var/www/html
       - nextcloud-data:/data

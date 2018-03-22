@@ -1,0 +1,4 @@
+name: Microsoft SQL Server
+description: Der Microsoft SQL Server ist ein relationales Datenbankmanagementsystem von Microsoft.
+version: 2017-CU5
+category: database
