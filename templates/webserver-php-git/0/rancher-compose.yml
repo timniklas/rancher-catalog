@@ -1,0 +1,32 @@
+.catalog:
+  name: Webserver PHP GIT
+  version: v1.4.1
+  uuid: webserver-php-git-0
+  questions:
+    - variable: "GIT_USERNAME"
+      description: "Minimum 8 characters, upper, lower, number"
+      label: "Git Username:"
+      required: true
+      type: "string"
+    - variable: "GIT_REPO"
+      description: "Minimum 8 characters, upper, lower, number"
+      label: "Git Repository:"
+      default: "github.com/project"
+      required: true
+      type: "string"
+    - variable: "GIT_PERSONAL_TOKEN"
+      description: "Minimum 8 characters, upper, lower, number"
+      label: "Git Password:"
+      required: true
+      type: "string"
+
+webserver-php-git:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 80
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 3000
+    healthy_threshold: 2
