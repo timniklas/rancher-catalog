@@ -1,0 +1,22 @@
+version: '2'
+volumes:
+  nextcloud-web:
+    driver: local
+  nextcloud-data:
+    driver: local
+
+services:
+  nextcloud:
+    image: nextcloud:13.0.1
+    ports:
+      - 80/tcp
+    volumes:
+      - nextcloud-web:/var/www/html
+      - nextcloud-data:/data
+    restart: unless-stopped
+    environment:
+      - MYSQL_HOST=${mysql_hostname}
+      - MYSQL_USER=${mysql_username}
+      - MYSQL_PASSWORD=${mysql_password}
+      - MYSQL_DATABASE=${mysql_database}
+      - NEXTCLOUD_DATA_DIR=/data

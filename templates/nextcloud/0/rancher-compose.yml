@@ -1,0 +1,36 @@
+.catalog:
+  name: Nextcloud
+  version: v13.0.1
+  uuid: nextcloud-0
+  questions:
+    - variable: "mysql_hostname"
+      description: "MySQL hostname"
+      label: "Hostname:"
+      required: true
+      type: "string"
+    - variable: "mysql_hostname"
+      description: "MySQL hostname"
+      label: "Username:"
+      required: true
+      type: "string"
+    - variable: "mysql_hostname"
+      description: "MySQL password"
+      label: "Password:"
+      required: true
+      type: "string"
+    - variable: "mysql_hostname"
+      description: "MySQL database"
+      label: "Database:"
+      required: true
+      type: "string"
+
+nextcloud:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 80
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 3000
+    healthy_threshold: 2
