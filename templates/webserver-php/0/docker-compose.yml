@@ -4,7 +4,7 @@ volumes:
     driver: local
 
 services:
-  webserver-php-git:
+  webserver-php:
     image: richarvey/nginx-php-fpm:1.4.1
     volumes:
       - webserver-data:/var/www/html
@@ -12,6 +12,7 @@ services:
     environment:
       - GIT_EMAIL=git@cyberdos.de
       - GIT_NAME=AutoPuller
-      - GIT_USERNAME=${GIT_USERNAME}
+      - GIT_USE_SSH=1
+      - GIT_BRANCH=${GIT_BRANCH}
       - GIT_REPO=${GIT_REPO}
-      - GIT_PERSONAL_TOKEN=${GIT_PERSONAL_TOKEN}
+      - SSH_KEY=${SSH_KEY}

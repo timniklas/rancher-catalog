@@ -1,4 +1,4 @@
-name: Webserver PHP GIT
+name: Webserver PHP
 description: Container running Nginx + PHP-FPM capable of pulling application code from git.
 version: v1.4.1
 category: web
