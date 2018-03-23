@@ -1,0 +1,34 @@
+.catalog:
+  name: Gitlab Community Server
+  version: v10.6.0-ce.0
+  uuid: gitlab-ce-server-0
+  questions:
+    - variable: "gitlab_hostname"
+      description: "Gitlab hostname (without uri scheme http:// or https://)"
+      label: "Hostname:"
+      required: true
+      default: "git.example.com"
+      type: "string"
+    - variable: "registry_gitlab_hostname"
+      description: "Registry Gitlab hostname (without uri scheme http:// or https://)"
+      label: "Registry hostname:"
+      required: true
+      default: "git-reg.example.com"
+      type: "string"
+    - variable: "ssh_port"
+      description: "SSH port to expose on host. Will be used to bind TCP"
+      label: "SSH port:"
+      required: true
+      default: 22
+      type: "int"
+
+gitlab-ce-server:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 80
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 3000
+    healthy_threshold: 2
