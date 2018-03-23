@@ -2,6 +2,7 @@
   name: Gitlab Community Server
   version: v10.6.0-ce.0
   uuid: gitlab-ce-server-0
+  upgrade_from: v10.5.4-ce.0
   questions:
     - variable: "gitlab_hostname"
       description: "Gitlab hostname (without uri scheme http:// or https://)"
