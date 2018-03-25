@@ -16,5 +16,5 @@ services:
     volumes:
       - ${web_path}/backend:/www
     expose:
-      - 80
+      - 8080
     command: "npm start"
