@@ -1,0 +1,38 @@
+.catalog:
+  name: Webserver NodeJS
+  version: v8.10
+  uuid: webserver-node-0
+  questions:
+    - variable: "site_config"
+      description: "Path of the nginx site config. Data is mounted at /www"
+      label: "Site path:"
+      default: "/var/www/site.conf"
+      required: true
+      type: "string"
+    - variable: "web_path"
+      description: "Path of the website data."
+      label: "Webserver path:"
+      default: "/var/www/DOMAIN"
+      required: true
+      type: "string"
+
+nginx:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 80
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 3000
+    healthy_threshold: 2
+node:
+  scale: 1
+  retain_ip: true
+  health_check:
+    port: 80
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 3000
+    healthy_threshold: 2

@@ -1,0 +1,20 @@
+version: '2'
+
+services:
+  nginx:
+    image: nginx:1.13.10
+    volumes:
+      - ${site_config}:/etc/nginx/conf.d/default.conf:ro
+      - ${web_path}/frontend:/www
+    restart: unless-stopped
+  node:
+    image: node:8.10
+    user: www-data
+    working_dir: /www
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ${web_path}/backend:/www
+    expose:
+      - 80
+    command: "npm start"

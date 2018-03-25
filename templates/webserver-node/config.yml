@@ -1,0 +1,4 @@
+name: Webserver NodeJS
+description: Containers running Nginx + NPM.
+version: v8.10
+category: web
