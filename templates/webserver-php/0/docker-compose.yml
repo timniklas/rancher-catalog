@@ -1,19 +1,16 @@
 version: '2'
-volumes:
-  webserver-data:
-    driver: local
 
 services:
   nginx:
     image: nginx:1.13.10
     volumes:
-      - ./site.conf:/etc/nginx/conf.d/site.conf
-      - webserver-data:/www
+      - ${site_config}:/etc/nginx/conf.d/site.conf:ro
+      - ${web_path}:/www
     links:
         - php
     restart: unless-stopped
   php:
     image: php:7.2.3-fpm
     volumes:
-      - webserver-data:/www
+      - ${web_path}:/www
     restart: unless-stopped
