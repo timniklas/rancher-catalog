@@ -1,4 +1,4 @@
 name: Webserver PHP
-description: Container running Nginx + PHP-FPM capable of pulling application code from git.
+description: Containers running Nginx + PHP-FPM.
 version: v7.2.3
 category: web
