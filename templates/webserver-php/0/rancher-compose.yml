@@ -1,27 +1,9 @@
 .catalog:
   name: Webserver PHP
-  version: v1.4.1
+  version: v7.2.3
   uuid: webserver-php-0
-  questions:
-    - variable: "GIT_REPO"
-      description: "URL to the repository containing your source code."
-      label: "Repository:"
-      default: "git@github.com/project.git"
-      required: true
-      type: "string"
-    - variable: "GIT_BRANCH"
-      description: "Select a specific branch"
-      label: "Branch:"
-      default: "master"
-      required: true
-      type: "string"
-    - variable: "SSH_KEY"
-      description: "Private SSH deploy key for your repository base64 encoded."
-      label: "SSH Key:"
-      required: true
-      type: "string"
 
-webserver-php:
+nginx:
   scale: 1
   retain_ip: true
   health_check:
@@ -31,3 +13,6 @@ webserver-php:
     strategy: recreate
     response_timeout: 3000
     healthy_threshold: 2
+php:
+  scale: 1
+  retain_ip: true

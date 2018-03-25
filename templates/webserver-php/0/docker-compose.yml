@@ -4,15 +4,16 @@ volumes:
     driver: local
 
 services:
-  webserver-php:
-    image: richarvey/nginx-php-fpm:1.4.1
+  nginx:
+    image: nginx:1.13.10
     volumes:
-      - webserver-data:/var/www/html
+      - ./site.conf:/etc/nginx/conf.d/site.conf
+      - webserver-data:/www
+    links:
+        - php
     restart: unless-stopped
-    environment:
-      - GIT_EMAIL=git@cyberdos.de
-      - GIT_NAME=AutoPuller
-      - GIT_USE_SSH=1
-      - GIT_BRANCH=${GIT_BRANCH}
-      - GIT_REPO=${GIT_REPO}
-      - SSH_KEY=${SSH_KEY}
+  php:
+    image: php:7.2.3-fpm
+    volumes:
+      - webserver-data:/www
+    restart: unless-stopped
