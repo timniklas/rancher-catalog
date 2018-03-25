@@ -1,12 +1,12 @@
 .catalog:
-  name: Webserver PHP
-  version: v7.2.3
-  uuid: webserver-php-0
+  name: Webserver
+  version: v1.13.10
+  uuid: webserver-0
   questions:
     - variable: "site_config"
       description: "Path of the nginx site config. Data is mounted at /www"
       label: "Site path:"
-      default: "/var/www/site-php.conf"
+      default: "/var/www/site.conf"
       required: true
       type: "string"
     - variable: "web_path"
@@ -26,6 +26,3 @@ nginx:
     strategy: recreate
     response_timeout: 3000
     healthy_threshold: 2
-php:
-  scale: 1
-  retain_ip: true

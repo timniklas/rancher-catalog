@@ -1,0 +1,4 @@
+name: Webserver
+description: Containers running Nginx.
+version: v1.13.10
+category: web
