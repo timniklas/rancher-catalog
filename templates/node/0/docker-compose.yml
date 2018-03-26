@@ -9,3 +9,4 @@ services:
     volumes:
       - ${app_path}:/app
     command:  bash -c "npm install && npm start"
+    restart: unless-stopped
