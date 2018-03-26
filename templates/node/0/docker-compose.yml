@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  node:
+    image: node:8.10
+    working_dir: /app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ${app_path}/backend:/app
+    command: "npm start"

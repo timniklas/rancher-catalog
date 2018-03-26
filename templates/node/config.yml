@@ -1,0 +1,4 @@
+name: NodeJS Application
+description: Containers running NPM.
+version: v8.10
+category: app

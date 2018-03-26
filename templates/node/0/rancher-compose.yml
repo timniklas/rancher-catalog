@@ -1,0 +1,15 @@
+.catalog:
+  name: NodeJS Application
+  version: v8.10
+  uuid: node-0
+  questions:
+    - variable: "app_path"
+      description: "Path of the application data."
+      label: "Application path:"
+      default: "/var/app/"
+      required: true
+      type: "string"
+
+node:
+  scale: 1
+  retain_ip: true
