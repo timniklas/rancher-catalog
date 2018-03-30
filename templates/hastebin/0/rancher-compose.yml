@@ -6,7 +6,7 @@
 hastebin:
   scale: 1
   retain_ip: true
- health_check:
+  health_check:
     port: 7777
     interval: 30000
     unhealthy_threshold: 3

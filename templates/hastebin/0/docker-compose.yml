@@ -5,7 +5,7 @@ volumes:
 
 services:
   hastebin:
-    image: rlister/hastebin:latest
+    image: rlister/hastebin
     labels:
       io.rancher.container.hostname_override: container_name
     environment:
