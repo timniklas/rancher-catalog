@@ -1,0 +1,18 @@
+.catalog:
+  name: "Hastebin"
+  version: "v4.0.9"
+  description: "Das eigene hastebin mit nur einem Klick"
+
+hastebin:
+  scale: 1
+  retain_ip: true
+ health_check:
+    port: 7777
+    interval: 30000
+    unhealthy_threshold: 3
+    strategy: recreate
+    response_timeout: 3000
+    healthy_threshold: 2
+redis:
+  scale: 1
+  retain_ip: true
